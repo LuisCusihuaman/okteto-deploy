@@ -1,7 +1,14 @@
 name: "Okteto deploy"
 description: "Run okteto deploy on the specified resources"
 inputs:
-  manifest:
+  namespace: 
+    description: 'If present, the namespace scope for this action. If not specified, it will use the current context'
+    required: false
+  build: 
+    description: "Build the images before deploy the stack"
+    required: false
+    default: 'false'
+  file: 
     description: 'Path to the Okteto manifest. Can be a file or a directory'
     required: false
     default: 'okteto.yml'
@@ -9,7 +16,9 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.manifest }}
+    - ${{ inputs.namespace }}
+    - ${{ inputs.build }}
+    - ${{ inputs.file }}
 branding:
-  icon: 'check-circle'  
   color: 'green'
+  icon: 'layers'
