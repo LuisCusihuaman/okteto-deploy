@@ -44,7 +44,7 @@ jobs:
         token: ${{ secrets.OKTETO_TOKEN }}
     - uses: okteto/namespace@latest
     - name: "Deploy okteto manifest"
-      uses: luiscusihuaman/okteto-deploy@latest
+      uses: luiscusihuaman/okteto-deploy@main
       with:
         build: "true"
 ```
@@ -61,10 +61,11 @@ jobs:
      steps:
      - uses: okteto/context@latest
        with:
-         token: ${{ secrets.OKTETO_TOKEN }}
+          token: ${{ secrets.OKTETO_TOKEN }}
      - uses: okteto/namespace@latest
      - name: "Deploy okteto manifest"
-       uses: luiscusihuaman/okteto-deploy@latest
+       uses: luiscusihuaman/okteto-deploy@main
        with:
-         build: "true"
+        file: "okteto.yml"
+        build: "true"
 ```
