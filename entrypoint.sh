@@ -11,7 +11,7 @@ if [ ! -z "$file" ]; then
 params="${params} --file $file"
 fi
 
-Vif [ "$build" == "true" ]; then
+if [ "$build" == "true" ]; then
 params="${params} --build"
 fi
 
