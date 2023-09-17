@@ -1,0 +1,15 @@
+name: "Okteto deploy"
+description: "Run okteto deploy on the specified resources"
+inputs:
+  manifest:
+    description: 'Path to the Okteto manifest. Can be a file or a directory'
+    required: false
+    default: 'okteto.yml'
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.manifest }}
+branding:
+  icon: 'check-circle'  
+  color: 'green'
