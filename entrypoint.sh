@@ -1,23 +1,22 @@
 #!/bin/sh
 set -e
 
-namespace=$1
-name=$2
-build=$3
-file=$4
+file=$1
+build=$2
+namespace=$3
 
 params=""
-
-if [ ! -z "$namespace" ]; then
-params="${params} --namespace $namespace"
-fi
 
 if [ ! -z "$file" ]; then
 params="${params} --file $file"
 fi
 
-if [ "$build" == "true" ]; then
+Vif [ "$build" == "true" ]; then
 params="${params} --build"
+fi
+
+if [ ! -z "$namespace" ]; then
+params="${params} --namespace $namespace"
 fi
 
 echo running: okteto  deploy $params on $(pwd)
