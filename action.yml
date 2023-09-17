@@ -16,9 +16,9 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.namespace }}
-    - ${{ inputs.build }}
     - ${{ inputs.file }}
+    - ${{ inputs.build }}
+    - ${{ inputs.namespace }}
 branding:
   color: 'green'
   icon: 'layers'
